@@ -33,6 +33,7 @@ public class JumpFlip : MonoBehaviour
     void Start()
     {
         bottleBody = bottle.GetComponent<Rigidbody2D>();
+        Time.timeScale = 1;
     }
 
     private void Update()
