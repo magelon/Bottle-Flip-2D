@@ -10,7 +10,9 @@ public class BottleCollide : MonoBehaviour
     {
         if (collision.gameObject.tag == "Respawn")
         {
-            butt.SetActive(false);
+            Debug.Log("game over");
+            //game over
+            //butt.SetActive(false);
         }
     }
 }

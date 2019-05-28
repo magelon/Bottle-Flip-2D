@@ -11,12 +11,13 @@ using UnityEngine;
 public class DetectFloor : MonoBehaviour
 {
     public GameObject bottle;
-    public GameObject gameManager;
+    GameObject gameManager;
 
     JumpFlip jumpflip;
 
     private void Start()
     {
+        gameManager = GameObject.Find("GameManager");
         jumpflip = gameManager.GetComponent<JumpFlip>();
 
     }
@@ -42,6 +43,7 @@ public class DetectFloor : MonoBehaviour
 
             bottle.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             bottle.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            bottle.transform.position = new Vector2(bottle.transform.position.x, collision.transform.position.y+3.25f);
             bottle.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 
             jumpflip.jumpCount = 0;
