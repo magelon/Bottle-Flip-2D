@@ -25,6 +25,9 @@ public class JumpFlip : MonoBehaviour
     [SerializeField]
     private float ve;
 
+    [SerializeField]
+    private int time;
+
     [Range(0,5)]
     public float offset;
 
@@ -33,17 +36,23 @@ public class JumpFlip : MonoBehaviour
     void Start()
     {
         bottleBody = bottle.GetComponent<Rigidbody2D>();
-        Time.timeScale = 1;
+
     }
 
     private void Update()
     {
+        Time.timeScale = 1;
         //check ve
         ve = bottleBody.velocity.magnitude;
 
         if (Input.GetMouseButtonDown(0))
         {
             jumpCount++;
+        }
+
+        if (jumpCount > 0)
+        {
+            time++;
         }
 
     }

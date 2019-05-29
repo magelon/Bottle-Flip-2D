@@ -13,6 +13,7 @@ public class BottleCollide : MonoBehaviour
             Debug.Log("game over");
             //game over
             //butt.SetActive(false);
+            GameData.getInstance().main.gameFailed();
         }
     }
 }

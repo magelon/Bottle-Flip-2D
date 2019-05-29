@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PlatformMove : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float speed;
+    GameObject gm;
+    int jf;
+
+    private void Start()
     {
-        
+        gm = GameObject.Find("GameManager");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        jf = gm.GetComponent<JumpFlip>().jumpCount;
+        if (jf > 0) { 
+        transform.Translate(Vector2.left * Time.deltaTime * speed); 
+        }
     }
 }
