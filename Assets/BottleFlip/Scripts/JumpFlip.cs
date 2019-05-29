@@ -25,8 +25,8 @@ public class JumpFlip : MonoBehaviour
     [SerializeField]
     private float ve;
 
-    [SerializeField]
-    private int time;
+
+    public int time;
 
     [Range(0,5)]
     public float offset;
