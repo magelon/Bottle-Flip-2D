@@ -77,6 +77,7 @@ public class JumpFlip : MonoBehaviour
             bottleBody.AddForce(transform.up * thrust);
             //add torque force
             bottleBody.AddTorque(torque);
+            GameManager.getInstance().playSfx("flip");
         }
     }
 }
