@@ -33,6 +33,9 @@ public class JumpFlip : MonoBehaviour
 
     public int jumpCount = 0;
 
+    float oldY;
+    float newY;
+
     void Start()
     {
         bottleBody = bottle.GetComponent<Rigidbody2D>();
@@ -41,16 +44,17 @@ public class JumpFlip : MonoBehaviour
 
     private void Update()
     {
+        newY= bottle.transform.position.y;
         Time.timeScale = 1;
         //check ve
         ve = bottleBody.velocity.magnitude;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)&&(newY-oldY)>0.5f)
         {
             jumpCount++;
         }
 
-        if (jumpCount > 0)
+        if (jumpCount > 0 && (newY - oldY) > 0.5f)
         {
             time++;
         }
@@ -59,8 +63,9 @@ public class JumpFlip : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetMouseButtonDown(0)&&(jumpCount<2))
+        if (Input.GetMouseButtonDown(0)&&(jumpCount<2)&&ve<10f)
         {
+            oldY = bottle.transform.position.y;
             //to avoid the collision detection and jump at same time 
             //change jump position a little bit above
             bottle.transform.position = new Vector2(bottle.transform.position.x, bottle.transform.position.y + offset);
