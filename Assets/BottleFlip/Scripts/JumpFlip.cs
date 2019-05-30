@@ -15,7 +15,7 @@ public class JumpFlip : MonoBehaviour
     public GameObject bottle;
     Rigidbody2D bottleBody;
 
-    [Range(500,1000)]
+    [Range(300,1000)]
     public float thrust;
 
     [Range(200, 1000)]
