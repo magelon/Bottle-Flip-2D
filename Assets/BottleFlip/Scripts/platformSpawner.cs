@@ -9,10 +9,18 @@ public class platformSpawner : MonoBehaviour
     public GameObject[] platform;
     public GameObject winp;
 
+    Camera main;
+
     bool win;
     void Start()
     {
         jf = GetComponent<JumpFlip>();
+        main = Camera.main;
+        main.backgroundColor= new Color(
+                    Random.Range(0f, 1f),
+                    Random.Range(0f, 1f),
+                    Random.Range(0f, 1f)
+                );
     }
 
     void Update()
